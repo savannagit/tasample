@@ -1,0 +1,3 @@
+http:// server contextroot /registergrouptag.php
+http:// server contextroot /punch.php
+http:// server contextroot /history.php
