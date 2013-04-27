@@ -72,7 +72,7 @@ function checkGroupTagDist($grp, $lat, $lon){
 		return TRUE;
 	}
 	$dist = getDist($lat, $lon, $taglat, $taglon);
-	if($dist < 10){
+	if($dist < 40){
 		return TRUE;
 	} else {
 		return FALSE;
@@ -144,7 +144,7 @@ function getGoogleToken(){
 		'Email' => 'google acount Email', 
 		'Passwd' => 'google acount password', 
 		'service' => 'cl',
-		'source' => 'my name',
+		'source' => 'companyName-applicationName-versionID',
 		);
 	$request = http_build_query($params); 
 
