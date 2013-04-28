@@ -44,12 +44,14 @@ if ($chale == '') {
 	$dectag = getDecryptedTag($tag, $xordata);
 	unset($_SESSION['punchchallenge']);
 	unset($_SESSION['punchtime']);
-	$locationcheck = $latexist == TRUE && $lonexist == TRUE;
+	$locationcheck = ($latexist == TRUE && $lonexist == TRUE) && (0 < strlen($lat) && 0 < strlen($lon));
 	if($locationcheck){
 		$distcheck = checkGroupTagDist($grp, $lat, $lon);
 		if(!$distcheck){
 			exit;
 		}
+	} else {
+		$distcheck = FALSE;
 	}
 	$grptag = getGroupTag($grp);
 	if($grptag == $dectag && time()-$punchtime < 300){
